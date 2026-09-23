@@ -1,3 +1,6 @@
+# This code is taken from P. Goffredo (https://github.com/pierpaologoffredo/PoliticalDebates_AM/tree/main) and modified according to my needs.
+
+
 import torch
 import numpy as np
 from torch import nn

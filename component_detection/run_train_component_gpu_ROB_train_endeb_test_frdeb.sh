@@ -6,7 +6,8 @@
 #SBATCH --cpus-per-task=4 # Number of CPU cores per task
 #SBATCH --mem=50G # Memory allocation (adjust according to your needs)
 #SBATCH --time=03:00:00 # Maximum runtime (adjust if needed)
-#SBATCH --gres=gpu:1                    # Request 1 GPU
+#SBATCH --gres=gpu:h100:1                 # Request 1 GPU
+#SBATCH -A almanach -p almanach -q proprietary
 ##SBATCH -N 1
 
 
@@ -16,7 +17,9 @@ echo $CUDA_VISIBLE_DEVICES
 
 # ACTIVATE VIRTUAL ENVIRONMENT
 conda init
-conda activate myenv
+conda activate /scratch/cgraiff/conda_envs/project-modern
+
+python -m pip install torch torchvision torchaudio transformers==4.0.0 scikit-learn numpy
 
 # SELECT TASK
 
@@ -25,7 +28,7 @@ export TASK_NAME=seqtag
 export MODELTYPE=xlm-roberta
 
 # PATH TO TRAINING DATA
-export DATA_DIR=train_EN-ElDeb_test_FrenchPolArg
+export DATA_DIR=data/data_for_training/train_EN-ElDeb_test_FrenchPolArg
 
 # MAXIMUM SEQUENCE LENGTH
 export MAXSEQLENGTH=10
@@ -37,7 +40,7 @@ export OUTPUTDIR=TEST-RoBERTa_TRAIN_ENdeb_TEST_FrenchPolArg_$TASK_NAME+$MAXSEQLE
 export MODEL=xlm-roberta-base
 
 
-python train_metricsontest.py \
+python component_detection/train_modifiedmetrics.py \
   --model_type $MODELTYPE \
   --model_name_or_path $MODEL \
   --output_dir $OUTPUTDIR \

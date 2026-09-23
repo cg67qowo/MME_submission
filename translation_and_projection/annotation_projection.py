@@ -1,3 +1,6 @@
+# This code is taken from Agerri and Yeginbergen (https://github.com/ragerri/abstrct-projections) and modified according to my needs.
+
+
 import os
 from SimAlign.generate_alignments import generate_word_alignments_simalign
 #from awesome.generate_alignments import generate_word_alignments_awesome

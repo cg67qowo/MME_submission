@@ -29,10 +29,11 @@ import torch
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler, Dataset
 from torch.utils.data.distributed import DistributedSampler
 from tqdm import tqdm, trange
+from torch.optim import AdamW
 
 from transformers import (
     WEIGHTS_NAME,
-    AdamW,
+   # AdamW,
     AlbertConfig,
     BertConfig,
     BertForSequenceClassification,

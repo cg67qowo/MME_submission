@@ -1,3 +1,6 @@
+# This code is taken from Agerri and Yeginbergen (https://github.com/ragerri/abstrct-projections) and modified according to my needs.
+
+
 import argparse
 from tqdm import tqdm
 from easynmt import EasyNMT, models

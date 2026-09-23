@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# This code is taken from P. Goffredo (https://github.com/pierpaologoffredo/PoliticalDebates_AM/tree/main) and modified according to my needs.
+
+
 try:
     from scipy.stats import pearsonr, spearmanr
     from sklearn.metrics import matthews_corrcoef, f1_score, confusion_matrix, classification_report
@@ -38,7 +41,8 @@ if _has_sklearn:
         labs = labels
         f1_micro = f1_score(labels, preds, labels=[1, 2, 3, 4, 5], average='micro')
         f1_micro_testall = f1_score(labels, preds, labels=[0, 1, 2, 3, 4, 5], average='micro')
-        f1_macro = f1_score(labels, preds, average='macro')
+        f1_macro = f1_score(labels, preds,  labels=[1, 2, 3, 4, 5], average='macro')
+        f1_macro_testall = f1_score(labels, preds,  labels=[0, 1, 2, 3, 4, 5], average='macro')
         f1_claim = f1_score(labels, preds, labels=[1,2], average='micro')
         f1_evidence = f1_score(labels, preds, labels=[3,4], average='micro')
         f1_X = f1_score(labels, preds, labels=[0], average='micro')
@@ -57,6 +61,7 @@ if _has_sklearn:
             'eval_f1_micro_testall': f1_micro_testall,
             'eval_f1_micro': f1_micro,
             'eval_f1_macro': f1_macro,
+            'eval_f1_macro_testall': f1_macro_testall,
             'f1_claim':f1_claim,
             'f1_X':f1_X,
             'f1_X_macro':f1_X_macro,

@@ -2,6 +2,8 @@
 
 This repository contains the data and the code for a paper submitted to the MME workshop, taking place at EACL 2026.
 
+![alt text](workflow.png)
+
 The repository is structured as follows:
 
 - data: this folder contains the data used for this paper. It is divided into:
@@ -17,5 +19,3 @@ The repository is structured as follows:
 - preprocessing: code for the various preprocessing steps. Not all the steps are reported here, as the paper does not focus on dataset building.
 
 As explained in the paper, this work partly reuses already existent works. In particular, the folder translation_and_projection comes from [this repository by R. Agerri](https://github.com/ragerri/abstrct-projections/tree/main/cross-lingual-argument-mining), which refers to the paper [Cross-Lingual Argument Mining in the Medical Domain (Yeginbergen and Agerri, 2024)](https://arxiv.org/abs/2301.10527), and component_detection comes from [this repository by Goffredo](https://github.com/pierpaologoffredo/PoliticalDebates_AM/tree/main). Component_detection was modified to include different architectures and setups tested in this paper, but keeps Goffredo's structure and implementation. **translation_and_projection was taken as is, and the only differences are related to adaptation to my data.** For these reasons, I reported the original licenses in the folders.
-
-This code is being submitted here for transparency, and before an eventual publication of the code I will make sure that the authors are properly cited in each file.

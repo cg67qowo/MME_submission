@@ -1,3 +1,6 @@
+# This code is taken from Agerri and Yeginbergen (https://github.com/ragerri/abstrct-projections).
+
+
 import multiprocessing as mp
 from multiprocessing.pool import Pool
 import psutil
